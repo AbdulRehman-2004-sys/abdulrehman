@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { LuMail, LuLinkedin, LuMessageSquare, LuChevronRight } from 'react-icons/lu';
+import { LuMail, LuLinkedin, LuMessageSquare, LuChevronRight, LuGitBranch, LuGithub } from 'react-icons/lu';
 
 export function Contact() {
   const [budget, setBudget] = useState('$10k - $25k');
@@ -60,6 +60,23 @@ export function Contact() {
                   <div className="text-left">
                     <div className="text-xs font-black uppercase">LinkedIn Profile</div>
                     <div className="text-[10px] text-white/50 font-mono">in/Abdul Rehman</div>
+                  </div>
+                </div>
+                <LuChevronRight className="group-hover:translate-x-1 transition-transform" />
+              </a>
+
+               <a 
+                href="https://github.com/AbdulRehman-2004-sys" 
+                id="contact-link-github"
+                target="_blank" 
+                rel="noreferrer"
+                className="flex items-center justify-between border-2 border-white/10 hover:border-primary p-4 bg-neutral-900 group transition-all"
+              >
+                <div className="flex items-center gap-3">
+                  <LuGithub className="text-xl text-primary" />
+                  <div className="text-left">
+                    <div className="text-xs font-black uppercase">GitHub Profile</div>
+                    <div className="text-[10px] text-white/50 font-mono">github/AbdulRehman-2004-sys</div>
                   </div>
                 </div>
                 <LuChevronRight className="group-hover:translate-x-1 transition-transform" />

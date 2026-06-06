@@ -99,8 +99,8 @@ function ArchitectureFlow({ type }: ArchitectureFlowProps) {
 
           {/* Step 1 */}
           <div className="border border-black bg-white p-2 flex justify-between items-center">
-            <span>USER CONNECTS SOCIAL ACCOUNTS</span>
-            <span className="text-black/40">OAuth (Google, GitHub, Social APIs)</span>
+            <span>CONNECT SOCIAL ACCOUNTS</span>
+            <span className="text-black/40">ZERNIO + OAUTH</span>
           </div>
 
           <div className="flex justify-center my-[-2px] text-xs">▼</div>
@@ -109,10 +109,10 @@ function ArchitectureFlow({ type }: ArchitectureFlowProps) {
           <div className="border border-black bg-white p-2 flex flex-col gap-1">
             <div className="flex justify-between">
               <span>AI CONTENT COMPOSER</span>
-              <span className="text-primary">OPENAI GPT-4o</span>
+              <span className="text-primary">OPENAI</span>
             </div>
             <span className="text-[9px] text-black/50 font-sans font-medium">
-              Generates Posts, Captions & Marketing Content
+              Generate Posts, Captions & Marketing Content
             </span>
           </div>
 
@@ -120,32 +120,32 @@ function ArchitectureFlow({ type }: ArchitectureFlowProps) {
 
           {/* Step 3 */}
           <div className="border border-black bg-white p-2 flex justify-between items-center">
-            <span>MEDIA GENERATION / UPLOAD</span>
-            <span className="text-black/40">AI Images + User Assets</span>
+            <span>MEDIA UPLOAD & ASSETS</span>
+            <span className="text-black/40">IMAGES / VIDEOS</span>
           </div>
 
           <div className="flex justify-center my-[-2px] text-xs">▼</div>
 
           {/* Step 4 */}
           <div className="border border-black bg-white p-2 flex justify-between items-center">
-            <span>SMART SCHEDULING ENGINE</span>
-            <span className="text-primary">CRON + QUEUE SYSTEM</span>
+            <span>SCHEDULING ENGINE</span>
+            <span className="text-primary">QUEUE SYSTEM</span>
           </div>
 
           <div className="flex justify-center my-[-2px] text-xs">▼</div>
 
           {/* Step 5 */}
           <div className="border border-black bg-white p-2 flex justify-between items-center">
-            <span>AUTO POSTING ENGINE</span>
-            <span className="text-black/40">SOCIAL PLATFORM APIs</span>
+            <span>ZERNIO UNIFIED API</span>
+            <span className="text-black/40">15+ PLATFORMS</span>
           </div>
 
           <div className="flex justify-center my-[-2px] text-xs">▼</div>
 
           {/* Step 6 */}
           <div className="border border-black bg-primary text-black p-2 flex justify-between items-center">
-            <span>REAL-TIME AUTO REPLY SYSTEM</span>
-            <span className="text-xs">AI RESPONSE ENGINE</span>
+            <span>AUTO PUBLISH & REPLIES</span>
+            <span className="text-xs">AUTOMATION</span>
           </div>
 
         </div>
@@ -162,7 +162,7 @@ const caseStudies = [
     industry: "Customer Support SaaS",
     problem: "Small businesses and startups often want AI-powered customer support but lack the technical resources to build, train, and deploy custom AI agents for their websites.",
     solution: "Built a no-code SaaS MVP that allows businesses to create an AI support agent by entering business information and uploading documents such as FAQs, PDFs, and product documentation. The platform automatically generates an embeddable script tag that can be added to any website, instantly deploying the AI support assistant without custom development.",
-    techStack: ["Next.js", "Node.js", "OpenAI", "Supabase", "Vector Search", "LangChain"],
+    techStack: ["Next.js", "Tailwind CSS", "Node.js", "OpenAI", "Supabase", "Vector Search", "LangChain", "Vercel", "Render"],
     archSnippet: "RAG-Powered AI Support Agent Platform",
     flowType: "ai" as const
   },
@@ -171,7 +171,7 @@ const caseStudies = [
     industry: "AI SaaS / Social Media Automation",
     problem: "Content creators, marketers, and businesses struggle to manage multiple social media platforms, create consistent content, and post at optimal times. Manual posting, content creation, and engagement handling across platforms like YouTube, Instagram, Facebook, TikTok, and Discord is time-consuming and inefficient.",
     solution: "Built an AI-powered multi-platform social media automation system where users can connect multiple accounts (YouTube, Instagram, Facebook, TikTok, Discord, etc.), create posts using an AI composer powered by OpenAI, generate AI images or upload custom media, and schedule posts for automated publishing. The system also includes an auto-reply engine that responds to comments and interactions in real-time using AI.",
-    techStack: ["Next.js", "Node.js", "OpenAI API", "OAuth (Google & GitHub)", "Supabase", "PostgreSQL", "Tailwind CSS", "Vercel"],
+    techStack: ["Next.js", "Node.js", "OpenAI API", "Zernio API", "OAuth (Google & GitHub)", "Supabase", "Tailwind CSS", "Vercel"],
     archSnippet: "AI-Powered Social Media Orchestration & Scheduling Engine",
     flowType: "automation" as const
   }

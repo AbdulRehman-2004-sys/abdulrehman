@@ -59,7 +59,7 @@ export function AboutMe() {
             </h3>
             
             <p className="mb-6 text-base md:text-lg font-medium leading-relaxed">
-              I started my career writing simple code scripts, but I quickly learned that founders don't need raw lines of code—they need <span className="highlight bg-primary text-black px-1 font-bold">scalable solutions to commercial bottlenecks</span>.
+              I started my career writing simple code scripts, but I quickly learned that founders don't need raw lines of code, they need <span className="highlight bg-primary text-black px-1 font-bold">scalable solutions to commercial bottlenecks</span>.
             </p>
             
             <p className="mb-6 text-base md:text-lg font-medium leading-relaxed">
