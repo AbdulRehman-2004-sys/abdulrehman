@@ -21,10 +21,10 @@ export default function Home() {
         <SelectedProjects />
         <AboutMe />
         <Experience />
-        <AIExpertise />
+        {/* <AIExpertise /> */}
         <Toolkit />
         <Certifications />
-        <OpenSource />
+        {/* <OpenSource /> */}
         <Contact />
       </main>
       <Footer />

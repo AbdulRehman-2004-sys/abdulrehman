@@ -1,31 +1,45 @@
 "use client";
 
 import React from 'react';
-import { SectionHeading } from '../ui/SectionHeading';
 import { motion } from 'framer-motion';
-import { LuAward, LuArrowUpRight } from 'react-icons/lu';
+import { LuAward } from 'react-icons/lu';
 
 const certifications = [
   {
-    name: "AWS Certified Solutions Architect – Associate",
-    organization: "Amazon Web Services",
-    date: "ISSUED 2023 • ACTIVE",
-    link: "#",
-    orgSlug: "AWS"
+    name: "Frontend Mastery & 9 Proven Earning Methods",
+    organization: "Talha's School",
+    date: "COMPLETED",
+    orgSlug: "TS",
+    highlights: [
+      "Demonstrated strong proficiency in frontend development through successful completion of multiple high-quality UI implementations.",
+      "Consistently performed among top learners in coding accuracy, problem-solving, and task completion efficiency."
+    ],
+    credentialId: "TS-2023-FMD9",
+    status: "ACTIVE"
   },
   {
-    name: "MongoDB Certified Developer Path",
-    organization: "MongoDB University",
-    date: "ISSUED 2022 • LIFETIME",
-    link: "#",
-    orgSlug: "MDB"
+    name: "Frontend Internship",
+    organization: "TechXudo",
+    date: "ISSUED 2024",
+    orgSlug: "TXD",
+    highlights: [
+      "Contributed to the development of frontend components and integration of REST APIs within production-level applications.",
+      "Participated in code optimization and refactoring tasks to improve application performance and maintainability."
+    ],
+    credentialId: "TXD-INT-2024-402",
+    status: "VERIFIED"
   },
   {
-    name: "Advanced React & Architecture Patterns",
-    organization: "Frontend Masters",
-    date: "ISSUED 2021 • LIFETIME",
-    link: "#",
-    orgSlug: "FEM"
+    name: "Web Development Internship",
+    organization: "SoftSolutions",
+    date: "ISSUED 2023-2024",
+    orgSlug: "SFT",
+    highlights: [
+      "Gained hands-on experience in full-stack development workflows including frontend, backend, and database integration.",
+      "Assisted in development of internal modules and contributed to resolving UI and cross-browser compatibility issues."
+    ],
+    credentialId: "SFT-WD-2023-882",
+    status: "VERIFIED"
   }
 ];
 
@@ -54,35 +68,69 @@ export function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.5 }}
-              className="bg-white border-2 border-black p-8 hover:shadow-[6px_6px_0px_0px_rgba(198,232,41,1)] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 flex flex-col justify-between"
+              className="bg-white border-2 border-black p-6 hover:shadow-[8px_8px_0px_0px_rgba(198,232,41,1)] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group min-h-[380px]"
             >
-              <div>
-                <div className="flex justify-between items-center mb-6">
-                  <span className="text-3xl text-black border border-black p-2 bg-primary">
-                    <LuAward />
-                  </span>
-                  <span className="font-mono text-xs font-black border border-black/25 px-2 py-0.5 bg-[#FDF8F0] text-black/50">
-                    {cert.orgSlug}
-                  </span>
-                </div>
-                <h3 className="text-lg md:text-xl font-black uppercase tracking-tight text-black mb-3">
-                  {cert.name}
-                </h3>
-                <p className="text-2xs font-mono font-bold text-black/40 uppercase tracking-widest mb-8">
-                  {cert.organization}
-                </p>
+              {/* Massive Watermark background text */}
+              <div className="absolute right-[-10px] bottom-[-20px] text-8xl font-black text-black/[0.03] select-none pointer-events-none group-hover:text-[#C6E829]/[0.08] transition-all duration-300 font-mono">
+                {cert.orgSlug}
               </div>
 
-              <div className="flex justify-between items-end border-t border-black/10 pt-4">
-                <span className="text-3xs font-mono font-bold tracking-wider text-black/50">
+              <div className="relative z-10">
+                {/* Header */}
+                <div className="flex justify-between items-start mb-6">
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl text-black border-2 border-black p-2 bg-primary shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] group-hover:bg-black group-hover:text-[#C6E829] transition-all duration-300 transform group-hover:rotate-12 flex items-center justify-center">
+                      <LuAward />
+                    </span>
+                    <div>
+                      <span className="font-mono text-[9px] font-black uppercase text-black/40 block leading-none">
+                        CREDENTIAL ID
+                      </span>
+                      <span className="font-mono text-2xs font-bold text-black">
+                        {cert.credentialId}
+                      </span>
+                    </div>
+                  </div>
+                  <span className="font-mono text-[9px] font-black border-2 border-black px-2 py-0.5 bg-black text-[#C6E829] uppercase tracking-wider shadow-[1.5px_1.5px_0px_0px_rgba(198,232,41,1)]">
+                    {cert.status}
+                  </span>
+                </div>
+
+                {/* Name */}
+                <h3 className="text-lg md:text-xl font-black uppercase tracking-tight text-black mb-1.5 transition-colors">
+                  {cert.name}
+                </h3>
+                
+                {/* Organization */}
+                <p className="text-2xs font-mono font-bold text-black/50 uppercase tracking-widest mb-6 flex items-center gap-1.5">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#C6E829] border border-black"></span>
+                  {cert.organization}
+                </p>
+
+                {/* Highlights/Remarks */}
+                <div className="mb-6">
+                  <div className="text-[10px] font-mono font-bold text-black/30 uppercase tracking-wider mb-2.5">
+                    PERFORMANCE & MILESTONES
+                  </div>
+                  <ul className="space-y-2.5 font-sans text-xs font-semibold text-secondary/80">
+                    {cert.highlights.map((highlight, hIdx) => (
+                      <li key={hIdx} className="flex items-start gap-2 leading-relaxed">
+                        <span className="text-[#C6E829] font-black mt-0.5 select-none">▪</span>
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="relative z-10 flex justify-between items-center border-t border-dashed border-black/20 pt-4 mt-auto">
+                <span className="text-3xs font-mono font-black tracking-widest text-black/40 uppercase">
+                  DATE COMPLETED
+                </span>
+                <span className="text-2xs font-mono font-black bg-black text-white px-2 py-0.5 border border-black">
                   {cert.date}
                 </span>
-                <a 
-                  href={cert.link} 
-                  className="flex items-center gap-1 text-xs font-black uppercase tracking-wider hover:text-primary transition-colors border-b-2 border-black"
-                >
-                  VERIFY <LuArrowUpRight />
-                </a>
               </div>
             </motion.div>
           ))}

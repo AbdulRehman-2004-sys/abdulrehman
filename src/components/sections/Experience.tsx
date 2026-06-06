@@ -6,49 +6,49 @@ import { motion } from 'framer-motion';
 
 const experiences = [
   {
-    company: "TechNova Solutions",
-    role: "Senior Full-Stack Engineer",
-    duration: "2023 - PRESENT",
+    company: "TIDE Digitalize",
+    role: "Senior Full-Stack Developer",
+    duration: "2026 - PRESENT",
     type: "FULL-TIME",
     achievements: [
-      "Architected multi-tenant SaaS platform serving 10,000+ active users, cutting infrastructure overhead by 25%.",
-      "Integrated OpenAI/LangGraph pipelines, reducing manual product listing updates by 40% with AI enrichment.",
-      "Mentored a team of 4 junior developers and established automated CI/CD pipelines, accelerating delivery cycles."
+      "Built scalable MERN/PERN SaaS applications with clean architecture, focusing on performance and maintainability.",
+      "Integrated GenAI (OpenAI) features to automate workflows, content generation, and product-level intelligence.",
+      "Developed secure backend systems with authentication (OAuth, RBAC), optimized databases, and collaborated with teams including mentoring junior developers."
     ]
   },
   {
-    company: "AI Horizons",
-    role: "AI & Product Engineer",
-    duration: "2021 - 2023",
-    type: "STARTUP",
+    company: "TechXudo",
+    role: "Frontend Engineer",
+    duration: "2024 - 2025",
+    type: "PART-TIME",
     achievements: [
-      "Built production custom RAG pipelines on Vector DBs, cutting support escalation counts by 30%.",
-      "Developed an Agentic AI workflow for automatic customer data onboarding, saving teams 15+ hours weekly.",
-      "Optimized postgres and vector search indices, reducing API response times by 300ms."
+      "Developed and maintained production-level frontend features for web applications, focusing on performance, responsiveness, and user experience.",
+      "Collaborated with backend and AI teams to integrate APIs and GenAI-powered features into frontend workflows.",
+      "Improved UI performance and code structure by optimizing components, state management, and reusable design systems."
     ]
   },
   {
-    company: "Creative Web Agency",
-    role: "Frontend Developer",
-    duration: "2019 - 2021",
-    type: "AGENCY",
-    achievements: [
-      "Delivered 20+ responsive, animation-rich client websites using Next.js, React, and GSAP/Framer Motion.",
-      "Created a unified reusable components library, cutting development times on subsequent projects by 30%.",
-      "Improved Core Web Vitals across client platforms, driving an average SEO page speed improvement of 35%."
-    ]
-  },
-  {
-    company: "Independent",
-    role: "Freelance Product Engineer",
-    duration: "2018 - 2019",
-    type: "FREELANCE",
-    achievements: [
-      "Partnered directly with startup founders to scope, build, and deploy MVP software in under 6 weeks.",
-      "Set up dynamic headful/headless e-commerce applications generating over $50k in monthly transactional volume.",
-      "Managed full lifecycle: UI/UX design, database modeling, cloud hosting, and domain/DNS configuration."
-    ]
-  }
+  company: "AZLOGICS DEV",
+  role: "Frontend Engineer",
+  duration: "2025 - 2025",
+  type: "INTERNSHIP",
+  achievements: [
+    "Developed responsive and reusable UI components for web applications using modern frontend practices.",
+    "Integrated REST APIs with frontend interfaces to deliver dynamic and data-driven user experiences.",
+    "Collaborated with the development team to fix UI bugs, improve performance, and enhance overall application usability."
+  ]
+},
+ {
+  company: "SoftSolutions",
+  role: "Full-Stack Developer",
+  duration: "2023 - 2024",
+  type: "INTERNSHIP",
+  achievements: [
+    "Learned and applied full-stack web development fundamentals while working on real-world projects using modern web technologies.",
+    "Built and contributed to multiple internal web applications, gaining hands-on experience in frontend, backend, and database integration.",
+    "Collaborated with senior developers to understand best practices in code structure, debugging, and production-level development workflows."
+  ]
+}
 ];
 
 export function Experience() {
@@ -67,29 +67,28 @@ export function Experience() {
           </p>
           <div className="h-1.5 w-32 bg-black mt-8"></div>
         </div>
-        
+
         <div className="relative max-w-5xl mx-auto mt-20">
           {/* Vertical timeline line */}
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-black transform md:-translate-x-1/2"></div>
-          
+
           <div className="space-y-12 md:space-y-16">
             {experiences.map((exp, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5 }}
-                className={`relative flex flex-col md:flex-row items-stretch ${
-                  idx % 2 === 0 ? 'md:flex-row-reverse' : ''
-                }`}
+                className={`relative flex flex-col md:flex-row items-stretch ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''
+                  }`}
               >
                 {/* Center dot marker */}
                 <div className="absolute left-2.5 md:left-1/2 w-4 h-4 bg-primary border-3 border-black rounded-none transform md:-translate-x-1/2 mt-7 md:mt-0 md:top-8 z-10"></div>
-                
+
                 {/* Space spacer for desktop */}
                 <div className="hidden md:block w-1/2"></div>
-                
+
                 {/* Card Container */}
                 <div className="w-full md:w-1/2 pl-10 md:pl-0 md:px-12">
                   <div className="bg-white border-2 border-black p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(198,232,41,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col justify-between">
@@ -103,9 +102,9 @@ export function Experience() {
                           {exp.type}
                         </span>
                       </div>
-                      
+
                       <p className="text-2xs font-mono font-bold text-black/40 mb-6 tracking-widest">{exp.duration}</p>
-                      
+
                       <ul className="space-y-3">
                         {exp.achievements.map((item, i) => (
                           <li key={i} className="flex items-start gap-2.5 text-secondary text-sm md:text-base font-medium leading-relaxed">

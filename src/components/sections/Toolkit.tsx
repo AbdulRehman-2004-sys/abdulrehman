@@ -14,7 +14,7 @@ const skillCategories = [
   {
     category: "Backend",
     icon: <LuServer className="text-xl" />,
-    items: ["Node.js", "Express", "NestJS", "Python", "FastAPI", "GraphQL", "Socket.io"]
+    items: ["Node.js", "Express", "NestJS", "Socket.io"]
   },
   {
     category: "Database",
@@ -25,16 +25,6 @@ const skillCategories = [
     category: "AI & Agentic",
     icon: <LuCpu className="text-xl" />,
     items: ["OpenAI API", "Claude", "Gemini", "LangGraph", "CrewAI", "RAG Systems", "VectorDBs"]
-  },
-  {
-    category: "DevOps",
-    icon: <LuShieldAlert className="text-xl" />,
-    items: ["Docker", "CI/CD Pipelines", "Git", "GitHub Actions", "Shell Scripting"]
-  },
-  {
-    category: "Cloud",
-    icon: <LuCloud className="text-xl" />,
-    items: ["AWS", "Vercel", "Render", "S3", "Cloudflare", "DigitalOcean"]
   }
 ];
 

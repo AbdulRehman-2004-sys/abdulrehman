@@ -3,7 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
-import { LuArrowRight, LuGithub, LuLinkedin, LuMail, LuMapPin, LuGlobe } from 'react-icons/lu';
+import { LuArrowRight, LuGithub, LuLinkedin, LuMail, LuMapPin, LuGlobe, LuEarth } from 'react-icons/lu';
+import { smoothScrollTo } from '@/utils/scroll';
 
 export function Hero() {
   const containerVariants = {
@@ -18,32 +19,32 @@ export function Hero() {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 15 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const } 
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }
     },
   };
 
-  const stats = [
-    { value: "06+", label: "YEARS EXPERIENCE" },
-    { value: "15+", label: "SAAS PRODUCTS SHIPPED" },
-    { value: "99.9%", label: "SYSTEM UPTIME ARCHITECTED" },
-    { value: "$2M+", label: "CLIENT REVENUE GENERATED" }
-  ];
+ const stats = [
+  { value: "MERN", label: "FULL-STACK DEVELOPMENT" },
+  { value: "PERN", label: "POSTGRESQL EXPERTISE" },
+  { value: "GENAI", label: "AI INTEGRATIONS" },
+  { value: "SAAS", label: "PRODUCT BUILDING" }
+];
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center bg-background pt-32 pb-16 md:pt-40 md:pb-24 border-b-2 border-black overflow-hidden grid-bg">
       <div className="container-custom relative z-10">
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="max-w-6xl"
         >
           {/* Header Metadata Grid */}
-          <motion.div 
-            variants={itemVariants} 
+          <motion.div
+            variants={itemVariants}
             className="flex flex-wrap items-center gap-y-4 gap-x-8 mb-8 text-xs md:text-sm font-black uppercase tracking-widest text-black/60 border-b-2 border-black/10 pb-6"
           >
             <div className="flex items-center gap-2">
@@ -52,7 +53,7 @@ export function Hero() {
                 <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-primary border border-black"></span>
               </span>
               <span className="text-black bg-primary px-2 py-0.5 border border-black font-bold">
-                AVAILABLE FOR Q3-Q4 PROJECTS
+                AVAILABLE FOR AI & SaaS PRODUCTS
               </span>
             </div>
             <div className="flex items-center gap-1.5 font-bold">
@@ -79,8 +80,8 @@ export function Hero() {
           </motion.div>
 
           {/* Headline Statement */}
-          <motion.p 
-            variants={itemVariants} 
+          <motion.p
+            variants={itemVariants}
             className="text-lg sm:text-xl md:text-3xl text-secondary max-w-4xl mb-12 font-medium leading-relaxed"
           >
             Helping startups build <span className="underline decoration-black decoration-2 underline-offset-4 font-bold text-black">scalable SaaS products</span>, AI-powered applications, <span className="bg-primary/20 px-1 font-bold text-black border border-transparent hover:border-black transition-all">intelligent agentic workflows</span>, and robust web systems optimized for product-market fit.
@@ -88,15 +89,17 @@ export function Hero() {
 
           {/* Action Buttons */}
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mb-20">
-            <Button 
-              onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
+            <Button
+              id="hero-cta-cases"
+              onClick={() => smoothScrollTo('work')}
               className="text-sm font-black py-5 px-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             >
               VIEW CASE STUDIES <LuArrowRight className="ml-2 text-lg" />
             </Button>
-            <Button 
-              variant="outline" 
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            <Button
+              id="hero-cta-touch"
+              variant="outline"
+              onClick={() => smoothScrollTo('contact')}
               className="text-sm font-black py-5 px-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             >
               GET IN TOUCH
@@ -104,22 +107,18 @@ export function Hero() {
           </motion.div>
 
           {/* Stats Dashboard Grid */}
-          <motion.div 
-            variants={itemVariants} 
+          <motion.div
+            variants={itemVariants}
             className="grid grid-cols-2 lg:grid-cols-4 border-2 border-black bg-white"
           >
             {stats.map((stat, i) => (
-              <div 
-                key={i} 
-                className={`p-6 md:p-8 flex flex-col justify-center hover:bg-primary transition-all duration-300 ${
-                  i < stats.length - 1 ? 'border-b-2 lg:border-b-0 border-black' : ''
-                } ${
-                  i % 2 === 0 ? 'border-r-2' : 'lg:border-r-2'
-                } ${
-                  i === 1 ? 'lg:border-r-2' : ''
-                } ${
-                  i === 2 ? 'border-r-2' : ''
-                }`}
+              <div
+                key={i}
+                className={`p-6 md:p-8 flex flex-col justify-center hover:bg-primary transition-all duration-300 ${i < stats.length - 1 ? 'border-b-2 lg:border-b-0 border-black' : ''
+                  } ${i % 2 === 0 ? 'border-r-2' : 'lg:border-r-2'
+                  } ${i === 1 ? 'lg:border-r-2' : ''
+                  } ${i === 2 ? 'border-r-2' : ''
+                  }`}
               >
                 <span className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter mb-2 text-black">
                   {stat.value}

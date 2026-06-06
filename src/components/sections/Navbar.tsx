@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LuMenu, LuX } from 'react-icons/lu';
+import { smoothScrollTo, smoothScrollToTop } from '@/utils/scroll';
 
 const navLinks = [
   { name: 'Work', href: '#work' },
@@ -36,6 +37,11 @@ export function Navbar() {
       <div className="container-custom flex items-center justify-between">
         <a 
           href="#" 
+          id="nav-logo"
+          onClick={(e) => {
+            e.preventDefault();
+            smoothScrollToTop();
+          }}
           className="text-xl md:text-2xl font-black tracking-tighter uppercase flex items-center gap-1 group"
         >
           <span className="bg-black text-white px-2 py-1 transition-colors group-hover:bg-primary group-hover:text-black">
@@ -47,11 +53,16 @@ export function Navbar() {
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden xl:flex items-center gap-6">
+        <nav className="hidden xl:flex items-center gap-3">
           {navLinks.map((link) => (
             <a 
               key={link.name} 
               href={link.href}
+              id={`nav-link-desktop-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
+              onClick={(e) => {
+                e.preventDefault();
+                smoothScrollTo(link.href.replace('#', ''));
+              }}
               className="text-xs font-black uppercase tracking-widest text-black/80 hover:text-black hover:bg-primary px-3 py-1.5 transition-all border border-transparent hover:border-black"
             >
               {link.name}
@@ -59,6 +70,11 @@ export function Navbar() {
           ))}
           <a 
             href="#contact"
+            id="nav-cta-talk-desktop"
+            onClick={(e) => {
+              e.preventDefault();
+              smoothScrollTo('contact');
+            }}
             className="text-xs font-black uppercase tracking-widest px-5 py-2.5 bg-primary text-black border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
           >
             LET'S TALK
@@ -67,6 +83,7 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button 
+          id="nav-mobile-toggle"
           className="xl:hidden border-2 border-black bg-white p-2 hover:bg-primary transition-all text-xl"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
@@ -90,7 +107,12 @@ export function Navbar() {
                 <a 
                   key={link.name} 
                   href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  id={`nav-link-mobile-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMobileMenuOpen(false);
+                    smoothScrollTo(link.href.replace('#', ''));
+                  }}
                   className="text-lg font-black uppercase tracking-widest text-black hover:bg-primary p-3 border-2 border-black hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all"
                 >
                   {link.name}
@@ -98,7 +120,12 @@ export function Navbar() {
               ))}
               <a 
                 href="#contact"
-                onClick={() => setIsMobileMenuOpen(false)}
+                id="nav-cta-talk-mobile"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsMobileMenuOpen(false);
+                  smoothScrollTo('contact');
+                }}
                 className="text-lg font-black uppercase tracking-widest text-center mt-2 p-3 bg-black text-white hover:bg-primary hover:text-black border-2 border-black hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-all"
               >
                 LET'S TALK

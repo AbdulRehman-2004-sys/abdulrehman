@@ -2,10 +2,11 @@
 
 import React from 'react';
 import { LuArrowUp } from 'react-icons/lu';
+import { smoothScrollToTop } from '@/utils/scroll';
 
 export function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    smoothScrollToTop();
   };
 
   return (
@@ -19,6 +20,7 @@ export function Footer() {
         {/* Back to Top */}
         <button 
           onClick={scrollToTop}
+          id="footer-back-to-top"
           className="flex items-center gap-2 text-2xs font-black uppercase tracking-widest hover:text-primary border-b border-transparent hover:border-primary transition-all pb-0.5 cursor-pointer"
         >
           BACK TO TOP <LuArrowUp className="text-sm" />

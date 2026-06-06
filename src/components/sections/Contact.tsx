@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Button } from '../ui/Button';
-import { LuMail, LuLinkedin, LuGithub, LuCalendar, LuMessageSquare, LuChevronRight } from 'react-icons/lu';
+import { LuMail, LuLinkedin, LuMessageSquare, LuChevronRight } from 'react-icons/lu';
 
 export function Contact() {
   const [budget, setBudget] = useState('$10k - $25k');
@@ -21,7 +19,7 @@ export function Contact() {
                 GET IN TOUCH
               </span>
               <h2 className="text-5xl md:text-[5.5rem] font-black uppercase tracking-tighter leading-[0.85] mb-8">
-                LET'S BUILD <br/>
+                LET&apos;S BUILD <br/>
                 <span className="text-primary">SOMETHING</span> <br/>
                 REMARKABLE
               </h2>
@@ -36,21 +34,23 @@ export function Contact() {
               <h4 className="text-3xs font-mono font-bold text-white/40 tracking-widest uppercase mb-2">DIRECT CHANNELS</h4>
               
               <a 
-                href="mailto:contact@example.com" 
+                href="mailto:abdrehmanryk80@gmail.com" 
+                id="contact-link-email"
                 className="flex items-center justify-between border-2 border-white/10 hover:border-primary p-4 bg-neutral-900 group transition-all"
               >
                 <div className="flex items-center gap-3">
                   <LuMail className="text-xl text-primary" />
                   <div className="text-left">
                     <div className="text-xs font-black uppercase">Email Address</div>
-                    <div className="text-[10px] text-white/50 font-mono">hello@rehman.dev</div>
+                    <div className="text-[10px] text-white/50 font-mono">abdrehmanryk80@gmail.com</div>
                   </div>
                 </div>
                 <LuChevronRight className="group-hover:translate-x-1 transition-transform" />
               </a>
 
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/abdul-rehman4002" 
+                id="contact-link-linkedin"
                 target="_blank" 
                 rel="noreferrer"
                 className="flex items-center justify-between border-2 border-white/10 hover:border-primary p-4 bg-neutral-900 group transition-all"
@@ -59,30 +59,15 @@ export function Contact() {
                   <LuLinkedin className="text-xl text-primary" />
                   <div className="text-left">
                     <div className="text-xs font-black uppercase">LinkedIn Profile</div>
-                    <div className="text-[10px] text-white/50 font-mono">in/abdulrehman-dev</div>
+                    <div className="text-[10px] text-white/50 font-mono">in/Abdul Rehman</div>
                   </div>
                 </div>
                 <LuChevronRight className="group-hover:translate-x-1 transition-transform" />
               </a>
 
               <a 
-                href="https://calendly.com" 
-                target="_blank" 
-                rel="noreferrer"
-                className="flex items-center justify-between border-2 border-white/10 hover:border-primary p-4 bg-neutral-900 group transition-all"
-              >
-                <div className="flex items-center gap-3">
-                  <LuCalendar className="text-xl text-primary" />
-                  <div className="text-left">
-                    <div className="text-xs font-black uppercase">Book a Scoping Call</div>
-                    <div className="text-[10px] text-white/50 font-mono">calendly.com/rehman-dev</div>
-                  </div>
-                </div>
-                <LuChevronRight className="group-hover:translate-x-1 transition-transform" />
-              </a>
-
-              <a 
-                href="https://whatsapp.com" 
+                href="https://wa.me/923258262894" 
+                id="contact-link-whatsapp"
                 target="_blank" 
                 rel="noreferrer"
                 className="flex items-center justify-between border-2 border-white/10 hover:border-primary p-4 bg-neutral-900 group transition-all"
@@ -91,7 +76,7 @@ export function Contact() {
                   <LuMessageSquare className="text-xl text-primary" />
                   <div className="text-left">
                     <div className="text-xs font-black uppercase">WhatsApp Messenger</div>
-                    <div className="text-[10px] text-white/50 font-mono">chat/rehman-dev</div>
+                    <div className="text-[10px] text-white/50 font-mono">chat/+923258262894</div>
                   </div>
                 </div>
                 <LuChevronRight className="group-hover:translate-x-1 transition-transform" />
@@ -105,12 +90,13 @@ export function Contact() {
               START A PROJECT
             </h3>
 
-            <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-6">
+            <form id="contact-intake-form" onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-6">
               {/* Name */}
               <div className="flex flex-col gap-2">
-                <label className="text-3xs font-mono font-bold uppercase text-white/40 tracking-wider">FULL NAME *</label>
+                <label htmlFor="contact-input-name" className="text-3xs font-mono font-bold uppercase text-white/40 tracking-wider">FULL NAME *</label>
                 <input 
                   type="text" 
+                  id="contact-input-name"
                   required
                   placeholder="e.g. Satya Nadella"
                   className="bg-neutral-900 border-2 border-white/10 focus:border-primary p-4 outline-none font-mono text-xs font-bold text-white transition-colors uppercase"
@@ -119,9 +105,10 @@ export function Contact() {
 
               {/* Email */}
               <div className="flex flex-col gap-2">
-                <label className="text-3xs font-mono font-bold uppercase text-white/40 tracking-wider">EMAIL ADDRESS *</label>
+                <label htmlFor="contact-input-email" className="text-3xs font-mono font-bold uppercase text-white/40 tracking-wider">EMAIL ADDRESS *</label>
                 <input 
                   type="email" 
+                  id="contact-input-email"
                   required
                   placeholder="e.g. satya@microsoft.com"
                   className="bg-neutral-900 border-2 border-white/10 focus:border-primary p-4 outline-none font-mono text-xs font-bold text-white transition-colors"
@@ -135,6 +122,7 @@ export function Contact() {
                   {budgetOptions.map(opt => (
                     <button
                       key={opt}
+                      id={`contact-budget-btn-${opt.replace(/[^a-zA-Z0-9]/g, '')}`}
                       type="button"
                       onClick={() => setBudget(opt)}
                       className={`p-3 text-center border-2 uppercase transition-all duration-300 ${
@@ -151,8 +139,9 @@ export function Contact() {
 
               {/* Project Brief */}
               <div className="flex flex-col gap-2">
-                <label className="text-3xs font-mono font-bold uppercase text-white/40 tracking-wider">PROJECT SUMMARY *</label>
+                <label htmlFor="contact-input-summary" className="text-3xs font-mono font-bold uppercase text-white/40 tracking-wider">PROJECT SUMMARY *</label>
                 <textarea 
+                  id="contact-input-summary"
                   required
                   rows={4}
                   placeholder="Describe your goals, tech stack preferences, and schedule constraints..."
@@ -163,6 +152,7 @@ export function Contact() {
               {/* Submit CTA */}
               <button
                 type="submit"
+                id="contact-submit-button"
                 className="w-full py-4.5 bg-primary text-black font-black uppercase text-xs tracking-widest border-2 border-black shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all text-center flex items-center justify-center gap-2"
               >
                 SUBMIT INQUIRY <LuChevronRight className="text-lg" />

@@ -77,7 +77,7 @@ export function OpenSource() {
       stars: 184,
       language: "TypeScript",
       langColor: "bg-blue-500",
-      link: "#"
+      link: "https://github.com/AbdulRehman-2004-sys/awesome-agentic-ai"
     },
     {
       name: "langgraph-router-template",
@@ -85,7 +85,7 @@ export function OpenSource() {
       stars: 112,
       language: "Python",
       langColor: "bg-green-600",
-      link: "#"
+      link: "https://github.com/AbdulRehman-2004-sys/langgraph-router-template"
     }
   ];
 
@@ -110,10 +110,11 @@ export function OpenSource() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12 border-b border-black pb-8">
             <div>
               <h3 className="text-2xl font-black uppercase tracking-tight mb-1">GITHUB METRICS</h3>
-              <p className="text-xs font-mono font-bold text-black/50">PROFILE: @abdulrehman-dev</p>
+              <p className="text-xs font-mono font-bold text-black/50">PROFILE: @AbdulRehman-2004-sys</p>
             </div>
             <a 
-              href="https://github.com" 
+              href="https://github.com/AbdulRehman-2004-sys" 
+              id="github-follow-button"
               target="_blank" 
               rel="noreferrer"
               className="px-6 py-3 bg-black text-white text-xs font-black uppercase tracking-widest border-2 border-black shadow-[3px_3px_0px_0px_rgba(198,232,41,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 hover:bg-primary hover:text-black transition-all"
@@ -177,6 +178,9 @@ export function OpenSource() {
                     </div>
                     <a 
                       href={repo.link} 
+                      id={`repo-clone-${i}`}
+                      target="_blank"
+                      rel="noreferrer"
                       className="flex items-center gap-1 text-xs font-black uppercase tracking-wider border-b border-black hover:text-primary hover:border-primary transition-all"
                     >
                       CLONE REPO <LuArrowUpRight />

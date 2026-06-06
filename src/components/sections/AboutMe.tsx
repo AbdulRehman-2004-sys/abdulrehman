@@ -33,7 +33,7 @@ export function AboutMe() {
             {/* Styled Image Frame */}
             <div className="border-4 border-black bg-black aspect-[3/4] relative z-10 w-full overflow-hidden flex items-center justify-center shadow-[12px_12px_0px_0px_rgba(198,232,41,1)]">
               <img 
-                src="/developer_portrait.png" 
+                src="/about.jpg" 
                 alt="Abdul Rehman - Full-Stack Engineer Portrait" 
                 className="w-full h-full object-cover grayscale contrast-110 hover:grayscale-0 transition-all duration-500"
               />
@@ -42,7 +42,7 @@ export function AboutMe() {
             <div className="absolute -bottom-6 -right-6 bg-black text-white text-3xs font-mono font-bold p-3 border-2 border-[#C6E829] z-20 shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hidden sm:block">
               <div className="border-b border-white/20 pb-1 mb-1">SYSTEM_INFO</div>
               <div>LOC: PKT/EST ALIGNED</div>
-              <div>STACK: MERN + GENAI</div>
+              <div>STACK: MERN • PERN • GENAI • AGENTIC AI</div>
             </div>
           </motion.div>
           
@@ -63,7 +63,7 @@ export function AboutMe() {
             </p>
             
             <p className="mb-6 text-base md:text-lg font-medium leading-relaxed">
-              Over the past 6 years, I have shaped my technical practice around <span className="underline decoration-black decoration-2 font-bold text-black">SaaS Optimization & Product Engineering</span>. By using full-stack patterns like PERN and MERN alongside custom-optimized caching, I construct platforms that stay fast under high concurrent workloads.
+              Over the past 3 years, I have shaped my technical practice around <span className="underline decoration-black decoration-2 font-bold text-black">SaaS Optimization & Product Engineering</span>. By using full-stack patterns like PERN and MERN alongside custom-optimized caching, I construct platforms that stay fast under high concurrent workloads.
             </p>
             
             <p className="mb-8 text-base md:text-lg font-medium leading-relaxed">

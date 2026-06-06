@@ -1,17 +1,63 @@
 "use client";
 
 import React from 'react';
-import { SectionHeading } from '../ui/SectionHeading';
 import { motion } from 'framer-motion';
 import { LuExternalLink, LuGithub, LuFileText, LuMessageSquare, LuLayers, LuCalendar, LuPenTool, LuChartBar } from 'react-icons/lu';
 
 interface MockupProps {
-  type: 'resume' | 'chat' | 'crm' | 'social' | 'content' | 'analytics';
+  type: 'resume' | 'chat' | 'crm' | 'social' | 'content' | 'analytics' | 'portal' | 'ecommerce';
 }
 
 function ProjectMockup({ type }: MockupProps) {
   const baseClass = "w-full aspect-video border-2 border-black bg-[#FDF8F0] p-3 mb-6 relative overflow-hidden font-mono text-[9px] font-bold text-black flex flex-col justify-between";
-  
+
+  if (type === 'portal') {
+    return (
+      <div className={baseClass}>
+        <div className="flex items-center justify-between border-b border-black pb-1.5 mb-1.5">
+          <span className="flex items-center gap-1"><LuLayers /> JOB_PORTAL_API</span>
+          <span className="text-[8px] bg-black text-[#C6E829] px-1 border border-black">ACTIVE</span>
+        </div>
+        <div className="flex-grow flex flex-col gap-1">
+          <div className="border border-black bg-white p-1 flex justify-between items-center text-[7px]">
+            <span>RECRUITER PORTAL</span>
+            <span className="text-black/40">3 APPS</span>
+          </div>
+          <div className="border border-black bg-white p-1 flex justify-between items-center text-[7px]">
+            <span>APPLICANT DASHBOARD</span>
+            <span className="text-primary">SUBMITTED</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (type === 'ecommerce') {
+    return (
+      <div className={baseClass}>
+        <div className="flex items-center justify-between border-b border-black pb-1.5 mb-1.5">
+          <span className="flex items-center gap-1"><LuChartBar /> STOREFRONT_OS</span>
+          <span className="text-[8px] text-black/50">CART: 2 ITEMS</span>
+        </div>
+        <div className="flex-grow flex flex-col justify-between">
+          <div className="grid grid-cols-2 gap-1.5">
+            <div className="border border-black bg-white p-1 text-center text-[7px]">
+              <span>GPU RTX 4090</span>
+              <span className="block text-primary font-bold">$1,599</span>
+            </div>
+            <div className="border border-black bg-white p-1 text-center text-[7px]">
+              <span>KEYBOARD PRO</span>
+              <span className="block text-black/40">$149</span>
+            </div>
+          </div>
+          <div className="bg-primary border border-black p-1 text-center text-[7px] font-bold">
+            CHECKOUT NOW
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (type === 'resume') {
     return (
       <div className={baseClass}>
@@ -152,53 +198,47 @@ function ProjectMockup({ type }: MockupProps) {
 
 const projects = [
   {
-    title: "AI Resume Builder",
-    description: "Generates tailored, ATS-optimized resumes and deploys bespoke responsive digital portfolios based on user experience logs and prompt variables.",
-    tech: "Next.js • OpenAI API • Prisma • Tailwind",
-    link: "#",
-    github: "#",
+    title: "Dynamic AI-Powered Resume System",
+    description: "Create a resume once and get a permanent shareable link that updates automatically as your skills, projects, and experience evolve. Includes AI-powered ATS analysis, resume optimization suggestions, PDF export, and secure authentication.",
+    tech: "Next.js • TypeScript • Supabase • OpenAI API • Tailwind CSS",
+    link: "https://resume-builder-eight-dun.vercel.app/",
+    github: "https://github.com/AbdulRehman-2004-sys/Resume-builder",
     type: "resume" as const
   },
   {
-    title: "AI Support Agent",
-    description: "Intelligent multi-agent customer support chatbot widget running on LangGraph to autonomously resolve tier-1 queries with vector database retrieval.",
-    tech: "LangGraph • Python • Pinecone • FastAPI",
-    link: "#",
-    github: "#",
+    title: "No-Code AI Support Agent SaaS",
+    description: "Create, train, and deploy AI customer support agents using business data, PDFs, and FAQs. Get an embeddable script tag and launch an intelligent support assistant on any website in minutes.",
+    tech: "Next.js • OpenAI • Supabase • Vector Search",
+    link: "https://customer-support-agent-embed-system-delta.vercel.app/",
+    github: "https://github.com/AbdulRehman-2004-sys/Customer-Support-Agent-Embed-System",
     type: "chat" as const
   },
   {
-    title: "SaaS CRM Platform",
-    description: "Highly scalable customer relationship dashboard integrated with WebSockets, asynchronous message queue logging, and PostgreSQL transaction analysis.",
-    tech: "React • Node.js • PostgreSQL • Redis",
-    link: "#",
-    github: "#",
-    type: "crm" as const
-  },
-  {
-    title: "Social Media Automation Tool",
-    description: "Full content calendar scheduling client automating generation, optimization, copy, and posting triggers to various developer social channels.",
+    title: "AI Social Media Automation SaaS",
+    description: "Manage multiple social platforms from a single dashboard with AI-generated content, smart scheduling, automated publishing, and AI-powered engagement workflows.",
     tech: "Next.js • Supabase • OAuth • OpenAI API",
-    link: "#",
-    github: "#",
+    link: "https://github.com/AbdulRehman-2004-sys/social-media-automation",
+    github: "https://github.com/AbdulRehman-2004-sys/social-media-automation",
     type: "social" as const
   },
   {
-    title: "AI Content Generator",
-    description: "Clean markdown compiler tool featuring intelligent writing prompts, semantic document search, automated summary tools, and live SEO checklist analysis.",
-    tech: "React • Express • OpenAI • Tailwind CSS",
-    link: "#",
-    github: "#",
-    type: "content" as const
-  },
-  {
-    title: "Analytics Dashboard",
-    description: "Dynamic transactional tracker for online stores showing metrics, system request throughput logs, and customer lifetime conversion funnels.",
-    tech: "React • D3.js • Prisma • PostgreSQL",
-    link: "#",
-    github: "#",
-    type: "analytics" as const
+    title: "Job Portal Platform",
+    description: "A full-stack recruitment platform connecting companies and job seekers through a role-based workflow. Recruiters can register organizations, publish job openings, manage applications, and review candidates, while students can discover opportunities, apply for positions, and track their application status through a dedicated dashboard.",
+    tech: "Next.js • Node.js • MongoDB • JWT • RBAC",
+    link: "https://job-portal-25.vercel.app/",
+    github: "https://github.com/AbdulRehman-2004-sys/Job-Portal",
+    type: "portal" as const
   }
+  ,
+  {
+    title: "Dropzone Gaming",
+    description: "A dynamic e-commerce solution for gaming hardware and accessories featuring product management, multi-admin controls, configurable payment methods, customer ticketing, order management, email notifications, and a fully customizable admin dashboard for managing store settings, themes, and business operations.",
+    tech: "Next.js • Node.js • MongoDB • Admin Dashboard • Email Services",
+    link: "https://gaming-zone-chi.vercel.app/",
+    github: "https://gaming-zone-chi.vercel.app/",
+    type: "ecommerce" as const
+  }
+
 ];
 
 export function SelectedProjects() {
@@ -217,10 +257,10 @@ export function SelectedProjects() {
           </p>
           <div className="h-1.5 w-32 bg-black mt-8"></div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
           {projects.map((project, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -230,7 +270,7 @@ export function SelectedProjects() {
             >
               {/* Project Card Graphic Header */}
               <ProjectMockup type={project.type} />
-              
+
               <div className="mb-3">
                 <span className="text-[10px] font-black uppercase tracking-widest text-[#1a1a1a]/50 group-hover:text-primary transition-colors bg-muted/40 border border-black/10 px-2 py-1">
                   {project.tech}
@@ -242,17 +282,23 @@ export function SelectedProjects() {
               <p className="text-secondary/80 font-medium text-sm leading-relaxed mb-6 flex-grow">
                 {project.description}
               </p>
-              
+
               {/* Links with clean borders */}
               <div className="flex gap-4 mt-auto border-t border-black/10 pt-4">
-                <a 
-                  href={project.link} 
+                <a
+                  href={project.link}
+                  id={`project-demo-${idx}`}
+                  target="_blank"
+                  rel="noreferrer"
                   className="flex items-center gap-1.5 text-xs font-black uppercase tracking-wider hover:text-primary transition-colors"
                 >
                   <LuExternalLink className="text-sm" /> LIVE DEMO
                 </a>
-                <a 
-                  href={project.github} 
+                <a
+                  href={project.github}
+                  id={`project-github-${idx}`}
+                  target="_blank"
+                  rel="noreferrer"
                   className="flex items-center gap-1.5 text-xs font-black uppercase tracking-wider hover:text-primary transition-colors border-l border-black/10 pl-4"
                 >
                   <LuGithub className="text-sm" /> VIEW GITHUB
